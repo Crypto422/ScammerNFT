@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default {
   CONTRACT_ADDRESS: "0xDD3AffCF20ce2f67C3452c1e064b57a70F13fa54",
   NETWORK: {

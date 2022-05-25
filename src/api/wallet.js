@@ -11,7 +11,7 @@ const connect = async () => {
       const networkId = await ethereum.request({
         method: "net_version",
       });
-      if (networkId == siteConfig.NETWORK.ID) {
+      if (networkId === siteConfig.NETWORK.ID) {
         if (accounts.length !== 0)
           return Promise.resolve({
             message: 'success',

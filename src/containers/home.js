@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useEffect, useState } from "react";
 import { NotificationManager } from "react-notifications";
 import { AnimationOnScroll } from 'react-animation-on-scroll';

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 const Footer = () => {
   return (
     <section className="main-section" id="index">

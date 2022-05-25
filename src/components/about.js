@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 const About = () => {

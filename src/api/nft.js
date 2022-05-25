@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import siteConfig from '../config/site.config';
 import {getContractInstance} from './index'
 
