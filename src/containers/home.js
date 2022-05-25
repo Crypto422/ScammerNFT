@@ -133,7 +133,7 @@ const Home = () => {
             </div>
             <p>Have a look on it at&nbsp;
               <a
-                href="https://testnets.opensea.io/collection/kick-scammers-nft-v3"
+                href="https://opensea.io/collection/kick-scammers-nft"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mr-4"
