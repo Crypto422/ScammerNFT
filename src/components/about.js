@@ -7,13 +7,13 @@ return(
 
     <div className="container py-5">
         
-        <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+        <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
         <div className="title">
             <h1>About US</h1>
         </div>
         </AnimationOnScroll>
 
-        <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">   
+        <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>   
         <div className="main-box">
 
             <p>We are crypto enthusiasts since 2017 from Austria. We always loved the whole crypto community but one
@@ -32,7 +32,7 @@ return(
             
             <div className="col-lg-3 col-md-6">
 
-                <AnimationOnScroll animateIn="animate__fadeInLeft" animateOnce="true">   
+                <AnimationOnScroll animateIn="animate__fadeInLeft" animateOnce={true}>   
                 <div className="team">
 
                     <img src="/images/73.png"/>
@@ -45,7 +45,7 @@ return(
             
             
             <div className="col-lg-3 col-md-6">
-            <AnimationOnScroll animateIn="animate__fadeInLeft" animateOnce="true"> 
+            <AnimationOnScroll animateIn="animate__fadeInLeft" animateOnce={true}> 
                 <div className="team">
 
                     <img src="/images/84.png"/>
@@ -59,7 +59,7 @@ return(
           
             <div className="col-lg-3 col-md-6">
 
-            <AnimationOnScroll animateIn="animate__fadeInRight" animateOnce="true"> 
+            <AnimationOnScroll animateIn="animate__fadeInRight" animateOnce={true}> 
 
                 <div className="team">
 
@@ -77,7 +77,7 @@ return(
 
             <div className="col-lg-3 col-md-6">
 
-            <AnimationOnScroll animateIn="animate__fadeInRight" animateOnce="true"> 
+            <AnimationOnScroll animateIn="animate__fadeInRight" animateOnce={true}> 
 
             <div className="team">
 

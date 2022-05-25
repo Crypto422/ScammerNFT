@@ -14,12 +14,27 @@ import { getShortAddress } from '../service/string'
 import { getWei } from '../service/common'
 import Slider from "react-slick";
 import { Container } from "react-bootstrap";
+import { css } from "@emotion/react";
+import ClipLoader from "react-spinners/ScaleLoader";
+import './styles.css';
+import { Modal } from 'react-responsive-modal';
 
 
 const Home = () => {
   const [amount, setAmount] = useState(1);
   const [isMint, setIsMint] = useState(false)
   const [address, setAddress] = useState('')
+  let [loading, setLoading] = useState(false);
+  let [color, setColor] = useState("#ffffff");
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+  const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
   const handleIncrease = () => {
     setAmount(Math.min(10, amount + 1))
@@ -29,28 +44,33 @@ const Home = () => {
   }
   const handleConnect = () => {
     connect()
-    .then((res) => {
-      setAddress(res.account)
-      setIsMint(true)
-    })
-    .catch((error) => {
-      NotificationManager.warning('Warning', error.message, 3000);
-    })
-  }
-  const handleMint = () => {
-    owner()
-    .then((owner) => {
-      let value = 0
-      if (owner !== address)
-        value = getWei(amount * siteConfig.DISPLAY_COST)
-      mint(amount, address, value)
       .then((res) => {
-        NotificationManager.success('Success', "Success minted", 3000);
+        setAddress(res.account)
+        setIsMint(true)
       })
       .catch((error) => {
-        NotificationManager.warning('Warning', error?.message, 3000);
+        NotificationManager.warning('Warning', error.message, 3000);
       })
-    })
+  }
+  const handleMint = () => {
+    setLoading(true);
+    owner()
+      .then((owner) => {
+        let value = 0
+        if (owner !== address)
+          value = getWei(amount * siteConfig.DISPLAY_COST)
+        mint(amount, address, value)
+          .then((res) => {
+            console.log(res);
+            NotificationManager.success('Success', "Success minted", 3000);
+            onOpenModal();
+            setLoading(false);
+          })
+          .catch((error) => {
+            NotificationManager.warning('Warning', error?.message, 3000);
+            setLoading(true);
+          })
+      })
   }
 
   useEffect(() => {
@@ -65,7 +85,7 @@ const Home = () => {
       {
         breakpoint: 1440,
         settings: {
-          slidesToShow:5,
+          slidesToShow: 5,
           slidesToScroll: 1,
 
         }
@@ -105,12 +125,31 @@ const Home = () => {
   return (
     <>
       <Header address={address} connect={handleConnect} />
+      <Modal open={open} onClose={onCloseModal} center styles={{ background: '#4e4e4e' }}>
+        <div className="flex-center">
+          <div className="main-counter">
+            <div className="title">
+              <h2>Purchase done</h2>
+            </div>
+            <p>Have a look on it at&nbsp;
+              <a
+                href="https://testnets.opensea.io/collection/kick-scammers-nft-v3"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mr-4"
+              >
+                OpenSea
+              </a>
+            </p>
+          </div>
+        </div>
+      </Modal>
       <section className="main-section" id="index">
         <div className="container">
           <div className="row align-items-center gy-5">
             <div className="col-lg-12">
 
-            
+
 
               <div className="title" >
                 <h1>Expose the Scammers!</h1>
@@ -120,9 +159,9 @@ const Home = () => {
 
                 <div className="col-lg-5">
 
-                <div className="text-center main-gif">
-                  <img src="/images/Fixedanimation.gif" alt="" />
-                </div>
+                  <div className="text-center main-gif">
+                    <img src="/images/Fixedanimation.gif" alt="" />
+                  </div>
 
                 </div>
 
@@ -131,8 +170,8 @@ const Home = () => {
 
                   <div className="main-box-lg">
                     <p>Every NFT will earn Scamtokens with every new contribution that will be added to the database.<br />
-                    What about raffles? Every month there will be a raffle, the more rare your NFT the more entries you get.<br />
-                    But be cautious once your entry is used it is gone.</p>
+                      What about raffles? Every month there will be a raffle, the more rare your NFT the more entries you get.<br />
+                      But be cautious once your entry is used it is gone.</p>
                     <p>More information about the database and Scamtokens on <span><a href="https://scamlistcrypto.com">scamlistcrypto.com</a></span></p>
                   </div>
 
@@ -140,7 +179,7 @@ const Home = () => {
 
               </div>
 
-              {isMint? (
+              {isMint ? (
                 <div className="flex-center">
                   <div className="main-counter">
                     <div className="title">
@@ -154,12 +193,14 @@ const Home = () => {
                     </div>
                     <ul className="navbar-nav mr-auto">
                       <li>
-                        <a className="custom-btn" id="connect-wallet" onClick={handleMint}>
-                          Mint
-                        </a>
+                        {
+                          !loading && <a className="custom-btn" id="connect-wallet" onClick={handleMint}>
+                            Mint
+                          </a>
+                        }
+
                       </li>
-                      <li>
-                      </li>
+                      <ClipLoader color={color} loading={loading} css={override} size={20} />
                     </ul>
                   </div>
                 </div>
@@ -167,7 +208,7 @@ const Home = () => {
                 <div className="main-button" id="navbarText">
                   <ul className="navbar-nav mr-auto">
                     <a className="custom-btn" id="connect-wallet" onClick={handleConnect}>
-                      {address === ''? "Connect Wallet" : getShortAddress(address)}
+                      {address === '' ? "Connect Wallet" : getShortAddress(address)}
                     </a>
                   </ul>
                 </div>
@@ -176,10 +217,10 @@ const Home = () => {
           </div>
         </div>
 
-        <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+        <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
           <Container fluid className="image-slider">
             <Slider {...imageSlider}>
-            
+
               <div>
                 <img src="/images/4.png" alt="" />
               </div>
@@ -216,19 +257,19 @@ const Home = () => {
                 <img src="/images/915.png" alt="" />
               </div>
 
-        
-          
+
+
             </Slider>
           </Container>
 
         </AnimationOnScroll>
 
 
-        <Roadmap/>
+        <Roadmap />
 
-        <About/>
+        <About />
 
-        <Faq/>
+        <Faq />
 
       </section>
       <Footer />

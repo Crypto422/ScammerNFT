@@ -5,7 +5,7 @@ return(
 
     <div className="container pb-5">
 
-        <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+        <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
      
         <div className="title">
             <h1>Roadmap</h1>
@@ -15,7 +15,7 @@ return(
 
         <div className="roadmap">
 
-            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">    
+            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>    
             <div className="roadmap-meta">
                 <div className="roadmap-center">
                     <div className="phases">
@@ -33,7 +33,7 @@ return(
             </div>
             </AnimationOnScroll>
 
-            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
             <div className="roadmap-meta">
                 <div className="roadmap-center">
                     <div className="phases">
@@ -51,7 +51,7 @@ return(
             </div>
             </AnimationOnScroll>
 
-            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
             <div className="roadmap-meta">
                 <div className="roadmap-center">
                     <div className="phases">
@@ -70,7 +70,7 @@ return(
             </AnimationOnScroll>
 
 
-            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
             <div className="roadmap-meta">
                 <div className="roadmap-center">
                     <div className="phases">

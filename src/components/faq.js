@@ -8,7 +8,7 @@ const Faq = () => {
     
         <div className="container py-5">
             
-            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
             <div className="title mb-5">
                 <h1>FAQ</h1>
             </div>
@@ -17,7 +17,7 @@ const Faq = () => {
               
             <Accordion defaultActiveKey="0">
 
-            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
                 <Accordion.Item eventKey="0">
                     <Accordion.Header><i className="fab fa-quora"></i>How to Mint a Scammer?</Accordion.Header>
                     <Accordion.Body>
@@ -40,7 +40,7 @@ const Faq = () => {
                 </Accordion.Item>
             </AnimationOnScroll>
 
-            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
                 <Accordion.Item eventKey="1">
                     <Accordion.Header><i className="fab fa-quora"></i>What is the Total Supply?</Accordion.Header>
                     <Accordion.Body>
@@ -49,7 +49,7 @@ const Faq = () => {
                 </Accordion.Item>
             </AnimationOnScroll>
 
-            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
                 <Accordion.Item eventKey="2">
                     <Accordion.Header><i className="fab fa-quora"></i>	Which are the rarest NFTs & do they also have benefits?</Accordion.Header>
                     <Accordion.Body>
@@ -59,7 +59,7 @@ const Faq = () => {
                 </Accordion.Item>
             </AnimationOnScroll>
 
-            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
                 <Accordion.Item eventKey="3">
                     <Accordion.Header><i className="fab fa-quora"></i>What could you possibly win in a raffle?</Accordion.Header>
                     <Accordion.Body>
@@ -69,7 +69,7 @@ const Faq = () => {
             </AnimationOnScroll>
                 
 
-            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
                 <Accordion.Item eventKey="4">
                     <Accordion.Header><i className="fab fa-quora"></i>Where can I view my NFTs after minting?</Accordion.Header>
                     <Accordion.Body>
@@ -78,7 +78,7 @@ const Faq = () => {
                 </Accordion.Item>
             </AnimationOnScroll>
 
-            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
                 <Accordion.Item eventKey="5">
                     <Accordion.Header><i className="fab fa-quora"></i>What are the minting costs for a Kick Scammers NFT?</Accordion.Header>
                     <Accordion.Body>
@@ -87,7 +87,7 @@ const Faq = () => {
                 </Accordion.Item>
             </AnimationOnScroll>
 
-            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
                 <Accordion.Item eventKey="6">
                     <Accordion.Header><i className="fab fa-quora"></i>Are Kick Scammers NFT a good investment?</Accordion.Header>
                     <Accordion.Body>
@@ -96,7 +96,7 @@ const Faq = () => {
                 </Accordion.Item>
             </AnimationOnScroll>
 
-            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
                 <Accordion.Item eventKey="7">
                     <Accordion.Header><i className="fab fa-quora"></i>What is a Scam Database?</Accordion.Header>
                     <Accordion.Body>
