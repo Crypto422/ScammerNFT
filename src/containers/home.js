@@ -146,7 +146,7 @@ const Home = () => {
                     <div className="title">
                       <h2>Mint</h2>
                     </div>
-                    <p>Price of one Kick Scammer NFT: 0.1 ETH.</p>
+                    <p>Kick Scammer NFT</p>
                     <div className="counter">
                       <button onClick={() => handleDecrease()}>-</button>
                       <span>{amount}</span>
@@ -159,7 +159,6 @@ const Home = () => {
                         </a>
                       </li>
                       <li>
-                        <p className="total">Total: {(siteConfig.DISPLAY_COST * amount).toFixed(1)} ETH</p>
                       </li>
                     </ul>
                   </div>

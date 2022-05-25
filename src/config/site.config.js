@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default {
-  CONTRACT_ADDRESS: "0xDD3AffCF20ce2f67C3452c1e064b57a70F13fa54",
+  CONTRACT_ADDRESS: "0x49855475ce87CF84b4C686C0360c35e069461eCc",
   NETWORK: {
     NAME: "Rinkeby testnet",
     SYMBOL: "ETH",
