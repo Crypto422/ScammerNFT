@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 const Footer = () => {
   return (
-    <section className="main-section" id="index">
+    <section className="main-section" id="contact">
       <div className="container">
         <div className="row align-items-center gy-5">
           <div className="col-lg-12 order-xs-2">

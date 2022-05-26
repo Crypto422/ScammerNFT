@@ -152,37 +152,24 @@ const Home = () => {
         <div className="container">
           <div className="row align-items-center gy-5">
             <div className="col-lg-12">
-
-
-
               <div className="title" >
                 <h1>Expose the Scammers!</h1>
               </div>
-
               <div className="row align-items-center py-5">
-
                 <div className="col-lg-5">
-
                   <div className="text-center main-gif">
                     <img src="/images/Fixedanimation.gif" alt="" />
                   </div>
-
                 </div>
-
-
                 <div className="col-lg-7">
-
                   <div className="main-box-lg">
                     <p>Every NFT will earn Scamtokens with every new contribution that will be added to the database.<br />
                       What about raffles? Every month there will be a raffle, the more rare your NFT the more entries you get.<br />
                       But be cautious once your entry is used it is gone.</p>
                     <p>More information about the database and Scamtokens on <span><a href="https://scamlistcrypto.com">scamlistcrypto.com</a></span></p>
                   </div>
-
                 </div>
-
               </div>
-
               {account ? (
                 <div className="flex-center">
                   <div className="main-counter">
@@ -269,14 +256,9 @@ const Home = () => {
           </Container>
 
         </AnimationOnScroll>
-
-
         <Roadmap />
-
         <About />
-
         <Faq />
-
       </section>
       <Footer />
     </>
