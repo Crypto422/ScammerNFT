@@ -25,9 +25,6 @@ const providerOptions = {
       darkMode: true // Optional. Use dark theme, defaults to false
     }
   },
-  binancechainwallet: {
-    package: true
-  },
   torus: {
     package: Torus, // required
     options: {
