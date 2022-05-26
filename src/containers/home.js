@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useEffect, useState } from "react";
 import { NotificationManager } from "react-notifications";
@@ -11,7 +12,7 @@ import siteConfig from "../config/site.config";
 import { connect } from "../api/wallet";
 import { mint, owner } from "../api/nft"
 import { getShortAddress } from '../service/string'
-import { getWei } from '../service/common'
+// import { getWei } from '../service/common'
 import Slider from "react-slick";
 import { Container } from "react-bootstrap";
 import { css } from "@emotion/react";
@@ -50,6 +51,7 @@ const Home = () => {
       })
       .catch((error) => {
         NotificationManager.warning('Warning', error.message, 3000);
+        setLoading(false);
       })
   }
   const handleMint = () => {
@@ -57,18 +59,17 @@ const Home = () => {
     owner()
       .then((owner) => {
         let value = 0
-        if (owner !== address)
-          value = getWei(amount * siteConfig.DISPLAY_COST)
+        // if (owner !== address)
+          value = amount * siteConfig.DISPLAY_COST;
         mint(amount, address, value)
           .then((res) => {
-            console.log(res);
             NotificationManager.success('Success', "Success minted", 3000);
             onOpenModal();
             setLoading(false);
           })
           .catch((error) => {
             NotificationManager.warning('Warning', error?.message, 3000);
-            setLoading(true);
+            setLoading(false);
           })
       })
   }
@@ -185,7 +186,7 @@ const Home = () => {
                     <div className="title">
                       <h2>Mint</h2>
                     </div>
-                    <p>Kick Scammer NFT</p>
+                    <p>Price of one Kick Scammer NFT: 0.1 ETH.</p>
                     <div className="counter">
                       <button onClick={() => handleDecrease()}>-</button>
                       <span>{amount}</span>
@@ -198,9 +199,11 @@ const Home = () => {
                             Mint
                           </a>
                         }
-
                       </li>
                       <ClipLoader color={color} loading={loading} css={override} size={20} />
+                      <li>
+                        <p className="total">Total: {(siteConfig.DISPLAY_COST * amount).toFixed(1)} ETH</p>
+                      </li>
                     </ul>
                   </div>
                 </div>
