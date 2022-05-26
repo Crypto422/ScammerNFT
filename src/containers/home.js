@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { NotificationManager } from "react-notifications";
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import Header from '../components/header';
@@ -9,22 +10,24 @@ import Roadmap from "../components/roadmap";
 import About from "../components/about";
 import Faq from "../components/faq";
 import siteConfig from "../config/site.config";
-import { connect } from "../api/wallet";
 import { mint, owner } from "../api/nft"
 import { getShortAddress } from '../service/string'
-// import { getWei } from '../service/common'
 import Slider from "react-slick";
 import { Container } from "react-bootstrap";
 import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ScaleLoader";
 import './styles.css';
 import { Modal } from 'react-responsive-modal';
-
+import { AppContext } from "../context/AppContext";
 
 const Home = () => {
+  const {
+    account,
+    connectWallet,
+    getAccBalance
+  } = useContext(AppContext);
+
   const [amount, setAmount] = useState(1);
-  const [isMint, setIsMint] = useState(false)
-  const [address, setAddress] = useState('')
   let [loading, setLoading] = useState(false);
   let [color, setColor] = useState("#ffffff");
   const [open, setOpen] = useState(false);
@@ -44,24 +47,28 @@ const Home = () => {
     setAmount(Math.max(1, amount - 1))
   }
   const handleConnect = () => {
-    connect()
+    connectWallet()
       .then((res) => {
-        setAddress(res.account)
-        setIsMint(true)
       })
       .catch((error) => {
         NotificationManager.warning('Warning', error.message, 3000);
         setLoading(false);
       })
   }
-  const handleMint = () => {
+  const handleMint = async () => {
     setLoading(true);
+    let balance = await getAccBalance();
     owner()
       .then((owner) => {
         let value = 0
-        // if (owner !== address)
-          value = amount * siteConfig.DISPLAY_COST;
-        mint(amount, address, value)
+        // if (owner !== account)
+        value = amount * siteConfig.DISPLAY_COST;
+        if (value > balance) {
+          NotificationManager.warning('Warning', "Not enough balance", 3000);
+          setLoading(false);
+          return;
+        }
+        mint(amount, account, value)
           .then((res) => {
             NotificationManager.success('Success', "Success minted", 3000);
             onOpenModal();
@@ -73,10 +80,6 @@ const Home = () => {
           })
       })
   }
-
-  useEffect(() => {
-    handleConnect()
-  }, [])
 
   const imageSlider = {
     dots: false,
@@ -125,7 +128,7 @@ const Home = () => {
 
   return (
     <>
-      <Header address={address} connect={handleConnect} />
+      <Header address={account} connect={handleConnect} />
       <Modal open={open} onClose={onCloseModal} center styles={{ background: '#4e4e4e' }}>
         <div className="flex-center">
           <div className="main-counter">
@@ -180,7 +183,7 @@ const Home = () => {
 
               </div>
 
-              {isMint ? (
+              {account ? (
                 <div className="flex-center">
                   <div className="main-counter">
                     <div className="title">
@@ -211,7 +214,7 @@ const Home = () => {
                 <div className="main-button" id="navbarText">
                   <ul className="navbar-nav mr-auto">
                     <a className="custom-btn" id="connect-wallet" onClick={handleConnect}>
-                      {address === '' ? "Connect Wallet" : getShortAddress(address)}
+                      Connect Wallet
                     </a>
                   </ul>
                 </div>

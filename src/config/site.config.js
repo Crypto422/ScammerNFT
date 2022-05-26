@@ -4,7 +4,7 @@ export default {
   NETWORK: {
     NAME: "Ethereum Network",
     SYMBOL: "ETH",
-    ID: "1"
+    ID: 1
   },
   DISPLAY_COST: 0.1,
 }

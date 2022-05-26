@@ -16,7 +16,7 @@ const Header = (props) => {
         <div className="justify-content-end" id="navbarText">
           <ul className="navbar-nav mr-auto">
             <a className="custom-btn" id="connect-wallet" onClick={connect}>
-              {address === ''? "Connect Wallet" : getShortAddress(address)}
+              {!address ? "Connect Wallet" : getShortAddress(address)}
             </a>
           </ul>
         </div>
