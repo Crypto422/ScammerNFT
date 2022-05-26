@@ -196,7 +196,7 @@ const Home = () => {
                       <button onClick={() => handleIncrease()}>+</button>
                     </div>
                     <ul className="navbar-nav mr-auto">
-                      <li className="justify-center d-flex">
+                      <li style={{ display: 'flex', justifyContent: 'center' }}>
                         {
                           !loading && <a className="custom-btn" id="connect-wallet" onClick={handleMint}>
                             Mint
