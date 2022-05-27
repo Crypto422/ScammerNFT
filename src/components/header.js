@@ -5,7 +5,7 @@ import { getShortAddress } from '../service/string'
 const Header = (props) => {
   const { address, connect } = props
   return (
-    <nav className="navbar navbar-expand-lg navbar-light nav-custom">
+    <nav className="navbar navbar-expand-lg navbar-light nav-custom fixed-top bg-dark">
       <div className="container-fluid">
         <a className="navbar-brand" href="./index.html">
           <img src="images/logo.png" className="logo" />
@@ -14,9 +14,9 @@ const Header = (props) => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse justify-content-end" id="navbarText">
-          <ul className="navbar-nav mr-auto">
+          <ul className="navbar-nav nav mr-auto">
             <li className="nav-item">
-              <a className="nav-link active-custom" href="#mint">Mint</a>
+              <a className="nav-link" href="#mint">Mint</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#roadmap">Roadmap</a>
@@ -28,7 +28,19 @@ const Header = (props) => {
               <a className="nav-link" href="#faq">FAQ</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#contact">Contact</a>
+              <a className="nav-link" href="#contact">
+                <img src="images/instagram.svg" width="20" alt="" style={{ width: "30px" }} />
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#contact">
+                <img src="images/discord.svg" width="20"  alt="" style={{ width: "30px" }}/>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#contact">
+                <img src="images/twitter.svg" width="20"  alt="" style={{ width: "30px" }}/>
+              </a>
             </li>
             <a className="custom-btn" id="connect-wallet" onClick={connect}>
               {!address ? "Connect Wallet" : getShortAddress(address)}

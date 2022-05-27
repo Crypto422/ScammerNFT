@@ -148,9 +148,9 @@ const Home = () => {
           </div>
         </div>
       </Modal>
-      <section className="main-section" id="index">
+      <section className="main-section" id="mint">
         <div className="container">
-          <div className="row align-items-center gy-5">
+          <div className="row align-items-center gy-5 mt-3">
             <div className="col-lg-12">
               <div className="title" >
                 <h1>Expose the Scammers!</h1>

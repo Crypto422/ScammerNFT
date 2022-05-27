@@ -173,7 +173,7 @@ a:hover {
   width: 100%;
 }
 
-.active-custom::after {
+.active::after {
   content: "";
   background-color: var(--primary);
   position: absolute;
