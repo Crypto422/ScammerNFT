@@ -53,7 +53,6 @@ const About = () => {
                                 <img src="/images/688.png" />
                                 <h4>Scammer Lex</h4>
                             </div>
-                            Right
                         </AnimationOnScroll>
                     </div>
                 </div>
