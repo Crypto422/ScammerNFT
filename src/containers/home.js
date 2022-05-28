@@ -24,6 +24,7 @@ const Home = () => {
   const {
     account,
     connectWallet,
+    disconnectWallet,
     getAccBalance
   } = useContext(AppContext);
 
@@ -128,7 +129,7 @@ const Home = () => {
 
   return (
     <>
-      <Header address={account} connect={handleConnect} />
+      <Header address={account} connect={handleConnect}  disconnectWallet={disconnectWallet}/>
       <Modal open={open} onClose={onCloseModal} center styles={{ background: '#4e4e4e' }}>
         <div className="flex-center">
           <div className="main-counter">
