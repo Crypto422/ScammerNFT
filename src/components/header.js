@@ -1,9 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
-import { getShortAddress } from '../service/string'
 
 const Header = (props) => {
-  const { address, connect } = props
+  const { address, connect, disconnectWallet } = props
   return (
     <nav className="navbar navbar-expand-lg navbar-light nav-custom fixed-top bg-dark">
       <div className="container-fluid">
@@ -34,17 +33,25 @@ const Header = (props) => {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#contact">
-                <img src="images/discord.svg" width="20"  alt="" style={{ width: "30px" }}/>
+                <img src="images/discord.svg" width="20" alt="" style={{ width: "30px" }} />
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#contact">
-                <img src="images/twitter.svg" width="20"  alt="" style={{ width: "30px" }}/>
+                <img src="images/twitter.svg" width="20" alt="" style={{ width: "30px" }} />
               </a>
             </li>
-            <a className="custom-btn" id="connect-wallet" onClick={connect}>
-              {!address ? "Connect Wallet" : getShortAddress(address)}
-            </a>
+            {
+              address ?
+                (<a className="custom-btn" id="connect-wallet" onClick={connect}>
+                  Connect Wallet
+                </a>)
+                :
+                (<a className="custom-btn" id="connect-wallet" onClick={disconnectWallet}>
+                  Disconnect Wallet
+                </a>)
+            }
+
           </ul>
         </div>
       </div>
