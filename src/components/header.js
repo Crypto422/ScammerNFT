@@ -42,7 +42,7 @@ const Header = (props) => {
               </a>
             </li>
             {
-              address ?
+              !address ?
                 (<a className="custom-btn" id="connect-wallet" onClick={connect}>
                   Connect Wallet
                 </a>)
