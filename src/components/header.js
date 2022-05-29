@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 
@@ -27,17 +28,17 @@ const Header = (props) => {
               <a className="nav-link" href="#faq">FAQ</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="https://www.instagram.com/kickscammersnft/">
+              <a className="nav-link" href="https://www.instagram.com/kickscammersnft/" target="_blank">
                 <img src="images/instagram.svg" width="20" alt="" style={{ width: "30px" }} />
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="https://discord.gg/HQdtsyPc">
+              <a className="nav-link" href="https://discord.gg/HQdtsyPc" target="_blank">
                 <img src="images/discord.svg" width="20" alt="" style={{ width: "30px" }} />
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="https://twitter.com/nft_kick">
+              <a className="nav-link" href="https://twitter.com/nft_kick" target="_blank">
                 <img src="images/twitter.svg" width="20" alt="" style={{ width: "30px" }} />
               </a>
             </li>
