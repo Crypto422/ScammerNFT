@@ -27,17 +27,17 @@ const Header = (props) => {
               <a className="nav-link" href="#faq">FAQ</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#contact">
+              <a className="nav-link" href="https://www.instagram.com/kickscammersnft/">
                 <img src="images/instagram.svg" width="20" alt="" style={{ width: "30px" }} />
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#contact">
+              <a className="nav-link" href="https://discord.gg/HQdtsyPc">
                 <img src="images/discord.svg" width="20" alt="" style={{ width: "30px" }} />
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#contact">
+              <a className="nav-link" href="https://twitter.com/nft_kick">
                 <img src="images/twitter.svg" width="20" alt="" style={{ width: "30px" }} />
               </a>
             </li>
